@@ -24,6 +24,7 @@ public class StackManager {
 		stack.push("vivek");
 		stack.push("ravi");
 		stack.push("gopal");
+		stack.push("navin");
 		System.out.println(stack);
 		System.out.println("size => " + stack.size());
 		System.out.println("isEmpty => " + stack.isEmpty());
@@ -36,6 +37,7 @@ public class StackManager {
 		System.out.println("size => " + stack.size());
 		System.out.println("isEmpty => " + stack.isEmpty());
 		System.out.println("isFull => " + stack.isFull());
+
 	}
 
 }
@@ -43,7 +45,7 @@ public class StackManager {
 /* Generic Stack using an Array */
 
 class Stack<E> {
-	private final E[] stack;
+	private E[] stack;
 	private int top;
 
 	@SuppressWarnings("unchecked")
@@ -66,10 +68,16 @@ class Stack<E> {
 
 	public void push(final E element) {
 		if (isFull()) {
-			// TODO: Resizing logic required
-			throw new IllegalStateException("Stack Overflow...");
+			resize();
 		}
 		stack[++top] = element;
+	}
+
+	@SuppressWarnings("unchecked")
+	private void resize() {
+		final E[] temp = (E[]) new Object[2 * stack.length];
+		System.arraycopy(stack, 0, temp, 0, stack.length);
+		stack = temp;
 	}
 
 	public E pop() {
