@@ -48,7 +48,6 @@ class Stack<E> {
 	private E[] stack;
 	private int top;
 
-	@SuppressWarnings("unchecked")
 	public Stack(final int capacity) {
 		stack = (E[]) new Object[capacity];
 		top = -1;
@@ -73,7 +72,6 @@ class Stack<E> {
 		stack[++top] = element;
 	}
 
-	@SuppressWarnings("unchecked")
 	private void resize() {
 		final E[] temp = (E[]) new Object[2 * stack.length];
 		System.arraycopy(stack, 0, temp, 0, stack.length);
@@ -97,9 +95,8 @@ class Stack<E> {
 		return element != null && Arrays.stream(stack).anyMatch(element::equals);
 	}
 
-	@Override
 	public String toString() {
-		return "Stack " + Arrays.toString(stack);
+		return "Stack => " + Arrays.toString(stack);
 	}
 
 }
