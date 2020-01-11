@@ -32,7 +32,7 @@ public class StackManager {
 		System.out.println("peek => " + stack.peek());
 		System.out.println("contains => " + stack.contains("vivek"));
 		System.out.println("===========================");
-		IntStream.range(0, 5).boxed().forEach(i -> System.out.println("Popped Element => " + stack.pop()));
+		IntStream.range(0, stack.size()).boxed().forEach(i -> System.out.println("Popped Element => " + stack.pop()));
 		System.out.println(stack);
 		System.out.println("size => " + stack.size());
 		System.out.println("isEmpty => " + stack.isEmpty());
@@ -96,7 +96,7 @@ class Stack<E> {
 	}
 
 	public String toString() {
-		return "Stack => " + Arrays.toString(stack);
+		return Arrays.toString(stack);
 	}
 
 }

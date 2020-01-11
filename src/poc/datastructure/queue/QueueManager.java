@@ -8,7 +8,6 @@ import java.util.stream.IntStream;
 
 import com.sun.xml.internal.txw2.IllegalSignatureException;
 
-
 /**
  * @author Sharath Kumar B <sharath1981@gmail.com>
  *
@@ -34,7 +33,8 @@ public class QueueManager {
 		System.out.println("isFull => " + queue.isFull());
 		System.out.println("contains => " + queue.contains("vivek"));
 		System.out.println("===========================");
-		IntStream.range(0, queue.size()).boxed().forEach(i -> System.out.println("deQueued Element => " + queue.deQueue()));
+		IntStream.range(0, queue.size()).boxed()
+				.forEach(i -> System.out.println("deQueued Element => " + queue.deQueue()));
 		System.out.println(queue);
 		System.out.println("size => " + queue.size());
 		System.out.println("isEmpty => " + queue.isEmpty());
@@ -94,7 +94,7 @@ class Queue<E> {
 	}
 
 	public String toString() {
-		return "Queue => " + Arrays.toString(queue);
+		return Arrays.toString(queue);
 	}
 
 }
