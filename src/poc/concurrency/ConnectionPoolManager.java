@@ -19,7 +19,6 @@ import java.util.stream.IntStream;
  */
 public class ConnectionPoolManager {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -49,7 +48,7 @@ final class JDBCConnectionPool implements ConnectionPool<Connection> {
 		this.password = password;
 		this.poolSize = poolSize;
 		registerDriver();
-		populateConnectionPool();
+		initializeConnectionPool();
 	}
 
 	private void registerDriver() {
@@ -60,7 +59,7 @@ final class JDBCConnectionPool implements ConnectionPool<Connection> {
 		}
 	}
 
-	private void populateConnectionPool() {
+	private void initializeConnectionPool() {
 		IntStream.range(0, poolSize)
 				 .boxed()
 				 .map(i->createConnection())
